@@ -8,7 +8,7 @@ Photto is a Image Caching and ImageShow Library for Android Projects.
 > allprojects {
 >  repositories {
 >			...
->			maven { url 'https://jitpack.io' }
+>			**maven { url 'https://jitpack.io' }**
 >  }
 > }
 
