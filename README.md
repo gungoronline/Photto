@@ -19,11 +19,11 @@ Photto is a Image Caching and ImageShow Library for Android Projects.
 # How to use ?
 
 ## FROM URL
-new Photto.PhottoBuilder(
-                this,
-                "https://images.unsplash.com/photo-1555992643-a97955e6aae6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=80",
-                (ImageView) findViewById(R.id.imageView)
-).build();
+> new Photto.PhottoBuilder(
+>  this,
+>  "https://images.unsplash.com/photo-1555992643-a97955e6aae6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=80",
+>  (ImageView) findViewById(R.id.imageView)
+> ).build();
 
 ## FROM URI
 new Photto.PhottoBuilder(
