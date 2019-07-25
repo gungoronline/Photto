@@ -1,6 +1,6 @@
 # Photto
-Project by @serifgungor and Generated in 26.07.2019.
-Photto is a ImageCaching and ImageShow Library
+- Project by @serifgungor and Generated in 26.07.2019.
+- Photto is a Image Caching and ImageShow Library for Android Projects.
 
 
 - FROM URL
