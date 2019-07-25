@@ -26,34 +26,34 @@ Photto is a Image Caching and ImageShow Library for Android Projects.
 > ).build();
 
 ## FROM URI
-new Photto.PhottoBuilder(
-                this,
-                Uri.parse("android.resource://"+getPackageName()+"/drawable/gungoronline_logo"),
-                (ImageView) findViewById(R.id.imageView)
-).build();
+> new Photto.PhottoBuilder(
+>   this,
+>   Uri.parse("android.resource://"+getPackageName()+"/drawable/gungoronline_logo"),
+>   (ImageView) findViewById(R.id.imageView)
+> ).build();
 
 ## FROM DRAWABLE
-new Photto.PhottoBuilder(
-                this,
-                R.drawable.ic_launcher_background,
-                (ImageView) findViewById(R.id.imageView)
-).build();
+> new Photto.PhottoBuilder(
+>   this,
+>   R.drawable.ic_launcher_background,
+>   (ImageView) findViewById(R.id.imageView)
+> ).build();
 
 ## FROM ASSETS FOLDER
-try {
-        new Photto.PhottoBuilder(
-                this,
-                getAssets().open("android.jpg"),
-                (ImageView) findViewById(R.id.imageView)
-        ).build();
-} catch (IOException e) {
-            e.printStackTrace();
-}
+> try {
+>   new Photto.PhottoBuilder(
+>     this,
+>     getAssets().open("android.jpg"),
+>     (ImageView) findViewById(R.id.imageView)
+>   ).build();
+> } catch (IOException e) {
+>   e.printStackTrace();
+> }
 
 ## FROM BASE64 STRING
-new Photto.PhottoBuilder(
-        this,
-        "BASE64_STR",
-        null,
-        (ImageView) findViewById(R.id.imageView)
-).build();
+> new Photto.PhottoBuilder(
+>   this,
+>   "BASE64_STR",
+>   null,
+>   (ImageView) findViewById(R.id.imageView)
+> ).build();
