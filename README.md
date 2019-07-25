@@ -13,7 +13,7 @@ Photto is a Image Caching and ImageShow Library for Android Projects.
 > }
 
 > dependencies {
->  implementation 'com.github.gungoronline:Photto:0.1.0'
+>  **implementation 'com.github.gungoronline:Photto:0.1.0'**
 > }
 
 # How to use ?
