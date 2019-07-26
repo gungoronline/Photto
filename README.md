@@ -58,4 +58,7 @@ Photto is a Image Caching and ImageShow Library for Android Projects.
 >   (ImageView) findViewById(R.id.imageView)
 > ).build();
 
+# Coming Soon (0.2.0)
+## FROM FILE
+
 Thank you for the support ! :kissing_heart:
