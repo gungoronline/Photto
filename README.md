@@ -16,6 +16,16 @@ Photto is a Image Caching and ImageShow Library for Android Projects.
 >  **implementation 'com.github.gungoronline:Photto:0.1.0'**
 > }
 
+or Maven
+
+> <dependency>
+>    <groupId>com.github.gungoronline</groupId>
+>    <artifactId>Photto</artifactId>
+>    <version>0.1.0</version>
+> </dependency>
+
+
+
 # How to use ?
 
 ## FROM URL
