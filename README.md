@@ -38,12 +38,13 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 ## FROM URI
-> new Photto.PhottoBuilder(
->   this,
->   Uri.parse("android.resource://"+getPackageName()+"/drawable/gungoronline_logo"),
->   (ImageView) findViewById(R.id.imageView)
-> ).build();
-
+```groovy
+new Photto.PhottoBuilder(
+  this,
+  Uri.parse("android.resource://"+getPackageName()+"/drawable/gungoronline_logo"),
+  (ImageView) findViewById(R.id.imageView)
+).build();
+```
 ## FROM DRAWABLE
 > new Photto.PhottoBuilder(
 >   this,
