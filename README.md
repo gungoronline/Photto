@@ -60,5 +60,6 @@ Photto is a Image Caching and ImageShow Library for Android Projects.
 
 # Coming Soon (0.2.0)
 - FROM FILE
+- We Thinking to add UploadBuilder
 
 Thank you for the support ! :kissing_heart:
