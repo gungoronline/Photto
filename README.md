@@ -30,12 +30,13 @@ or Maven
 
 ## FROM URL
 - If you want to display an image in the ImageView object on the website, you can use the following method. It downloads the image from the website and caches it from being downloaded continuously.
-> new Photto.PhottoBuilder(
->  this,
->  "https://images.unsplash.com/photo-1555992643-a97955e6aae6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=80",
->  (ImageView) findViewById(R.id.imageView)
-> ).build();
-
+```groovy
+new Photto.PhottoBuilder(
+  this,
+  "https://images.unsplash.com/photo-1555992643-a97955e6aae6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=80",
+  (ImageView) findViewById(R.id.imageView)
+).build();
+```
 ## FROM URI
 > new Photto.PhottoBuilder(
 >   this,
