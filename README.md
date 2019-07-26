@@ -46,30 +46,36 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 ## FROM DRAWABLE
-> new Photto.PhottoBuilder(
->   this,
->   R.drawable.ic_launcher_background,
->   (ImageView) findViewById(R.id.imageView)
-> ).build();
+```groovy
+new Photto.PhottoBuilder(
+  this,
+  R.drawable.ic_launcher_background,
+  (ImageView) findViewById(R.id.imageView)
+).build();
+```
 
 ## FROM ASSETS FOLDER
-> try {
->   new Photto.PhottoBuilder(
->     this,
->     getAssets().open("android.jpg"),
->     (ImageView) findViewById(R.id.imageView)
->   ).build();
-> } catch (IOException e) {
->   e.printStackTrace();
-> }
+```groovy
+try {
+  new Photto.PhottoBuilder(
+    this,
+    getAssets().open("android.jpg"),
+    (ImageView) findViewById(R.id.imageView)
+  ).build();
+} catch (IOException e) {
+  e.printStackTrace();
+}
+```
 
 ## FROM BASE64 STRING
-> new Photto.PhottoBuilder(
->   this,
->   "BASE64_STR",
->   null,
->   (ImageView) findViewById(R.id.imageView)
-> ).build();
+```groovy
+new Photto.PhottoBuilder(
+  this,
+  "BASE64_STR",
+  null,
+  (ImageView) findViewById(R.id.imageView)
+).build();
+```
 
 # Coming Soon (0.2.0)
 - FROM FILE
