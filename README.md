@@ -19,6 +19,7 @@ Photto is a Image Caching and ImageShow Library for Android Projects.
 # How to use ?
 
 ## FROM URL
+- if you want to display an image in the imageview object on the website, you can use the following method. It downloads the image from the website and caches it from being downloaded continuously.
 > new Photto.PhottoBuilder(
 >  this,
 >  "https://images.unsplash.com/photo-1555992643-a97955e6aae6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=80",
