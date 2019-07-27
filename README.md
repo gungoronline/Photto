@@ -37,11 +37,51 @@ new Photto.PhottoBuilder(
   (ImageView) findViewById(R.id.imageView)
 ).build();
 ```
-## FROM URI
+
+## FROM URL
+- If you want to display an image in the ImageView object on the website, you can use the following method. It downloads the image from the website and caches it from being downloaded continuously.
 ```groovy
 new Photto.PhottoBuilder(
   this,
-  Uri.parse("android.resource://"+getPackageName()+"/drawable/gungoronline_logo"),
+  "https://images.unsplash.com/photo-1555992643-a97955e6aae6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=80",
+  (ImageView) findViewById(R.id.imageView)
+).build();
+```
+
+## FROM URI WITH IMAGE LOAD LISTENER (Version: 0.2.0)
+```groovy
+new Photto.PhottoBuilder(
+  getApplicationContext(),
+  "https://images.unsplash.com/photo-1564149504817-d1378368526f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80",
+  new Photto.PhottoBuilder.ImageLoadListener() {
+    @Override
+    public void onImageLoaded() {
+      Log.d("PHOTTO", "Image Loaded");
+    }
+    @Override
+    public void onError(int errorCode) {
+      if(errorCode == PhottoError.URL_IS_BLANK){
+        Log.d("PHOTTO","URL can not be blank !");
+      }else if(errorCode == PhottoError.NETWORK_ERROR){
+        Log.d("PHOTTO","No internet connection !");
+      }else if(errorCode == PhottoError.NETWORK_ERROR_BUT_CACHE){
+        Log.d("PHOTTO","No internet connection, but image getted from cache !");
+      }
+    }
+    @Override
+    public void onImageLoading() {
+      Log.d("PHOTTO", "Image Loading");
+    }
+  },
+  (ImageView) findViewById(R.id.imageView)
+).build();
+```
+## FROM FILE (Version: 0.2.0)
+```groovy
+// If you need show image, you must allow Storage permission
+new Photto.PhottoBuilder(
+  getApplicationContext(),
+  new File("/storage/emulated/0/cat.jpeg"),
   (ImageView) findViewById(R.id.imageView)
 ).build();
 ```
