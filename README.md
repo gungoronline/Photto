@@ -79,13 +79,7 @@ new Photto.PhottoBuilder(
 
 # Change Logs
 - 26.07.2019
--- Version 0.1.0 has launched.
---- PhottoBuilder class created
----- FROM URL
----- FROM URL
----- FROM BASE64 STRING
----- FROM ASSETS FOLDER
----- FROM DRAWABLE
+-- Version 0.1.0 has launched. (PhottoBuilder class created.FROM URL, FROM URI, FROM BASE64 STRING, FROM ASSETS FOLDER, FROM DRAWABLE added)
 
 # Coming Soon (0.2.0)
 - FROM FILE
