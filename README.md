@@ -83,6 +83,7 @@ new Photto.PhottoBuilder(
 
 # Coming Soon (0.2.0)
 - FROM FILE
+- FROM URL WITH IMAGE LOAD LISTENER
 - We Thinking to add UploadBuilder
 
 License
