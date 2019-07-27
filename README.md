@@ -1,7 +1,7 @@
 # Photto
 Photto is a Image Caching and ImageShow Library for Android Projects.
 
-- Project by [@serifgungor](https://github.com/serifgungor) and Generated in 26.07.2019.
+- Project by [@serifgungor](https://github.com/serifgungor) and Generated in 26.07.2019. Last revision at 27.07.2019
 
 # Installation
 Gradle
