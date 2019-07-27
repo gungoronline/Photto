@@ -4,14 +4,18 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.ImageView;
+
 import androidx.annotation.Nullable;
 
 import com.gungoronline.photto.Helper.ImageLibrary;
 
+import java.io.File;
 import java.io.InputStream;
 
 public class Photto {
@@ -23,6 +27,7 @@ public class Photto {
     private int drawableResourceId;
     private InputStream inputStream;
     private byte[] decodedString;
+    private File file;
 
 
     public Photto(PhottoBuilder phottoBuilder) {
@@ -34,6 +39,11 @@ public class Photto {
         this.drawableResourceId = phottoBuilder.drawableResourceId;
         this.inputStream = phottoBuilder.inputStream;
         this.decodedString = phottoBuilder.decodedString;
+        this.file = phottoBuilder.file;
+    }
+
+    public File getFile() {
+        return file;
     }
 
     public Uri getUri() {
@@ -82,9 +92,29 @@ public class Photto {
         private int drawableResourceId;
         private InputStream inputStream;
         private byte[] decodedString;
+        private File file;
 
         Photto photto;
         ImageLibrary il;
+
+        public interface ImageLoadListener {
+            public void onImageLoaded();
+
+            public void onError(int errorCode);
+
+            public void onImageLoading();
+        }
+
+        private ImageLoadListener imageLoadListener;
+
+        public boolean networkConnection() {
+            ConnectivityManager conMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (conMgr.getActiveNetworkInfo() != null && conMgr.getActiveNetworkInfo().isAvailable() && conMgr.getActiveNetworkInfo().isConnected()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
 
         private String reverseString(String str) {
@@ -98,14 +128,38 @@ public class Photto {
         public PhottoBuilder(Context context, String url, ImageView into) {
             this.context = context;
             this.url = url;
-            String str = reverseString(url.replaceAll("[^a-zA-Z0-9]", ""));
-            this.uniqueName = str.substring(60);
+            if (!url.isEmpty()) {
+                String str = reverseString(url.replaceAll("[^a-zA-Z0-9]", ""));
+                this.uniqueName = str.substring(60);
+            } else {
+                imageLoadListener.onError(2);
+            }
             this.into = into;
         }
+
+        public PhottoBuilder(Context context, String url, ImageLoadListener imageLoadListener, ImageView into) {
+            this.context = context;
+            this.url = url;
+            if (!url.isEmpty()) {
+                String str = reverseString(url.replaceAll("[^a-zA-Z0-9]", ""));
+                this.uniqueName = str.substring(60);
+            } else {
+                imageLoadListener.onError(2);
+            }
+            this.into = into;
+            this.imageLoadListener = imageLoadListener;
+        }
+
 
         public PhottoBuilder(Context context, Uri uri, ImageView into) {
             this.context = context;
             this.uri = uri;
+            this.into = into;
+        }
+
+        public PhottoBuilder(Context context, File file, ImageView into) {
+            this.context = context;
+            this.file = file;
             this.into = into;
         }
 
@@ -181,7 +235,20 @@ public class Photto {
                     if (photto.getUri() != null) {
                         into.setImageURI(photto.uri);
                     } else if (photto.getUrl() != null) {
-                        into.setImageBitmap(il.loadImageFromStorage("/data/data/" + context.getPackageName() + "/app_imageDir", uniqueName + ".jpg"));
+                        if (!photto.getUrl().isEmpty()) {
+                            if (networkConnection()) {
+                                if (imageLoadListener != null) {
+                                    into.setImageBitmap(il.loadImageFromStorage("/data/data/" + context.getPackageName() + "/app_imageDir", uniqueName + ".jpg"));
+                                    imageLoadListener.onImageLoaded();
+                                }
+                            } else {
+                                Bitmap bp = il.loadImageFromStorage("/data/data/" + context.getPackageName() + "/app_imageDir", uniqueName + ".jpg");
+                                if (bp != null) {
+                                    into.setImageBitmap(bp);
+                                }
+                            }
+                        }
+
                     } else if (photto.getDrawableResourceId() != 0) {
                         into.setImageResource(photto.drawableResourceId);
                     } else if (photto.getInputStream() != null) {
@@ -189,15 +256,33 @@ public class Photto {
                     } else if (photto.getDecodedString() != null) {
                         Bitmap bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                         into.setImageBitmap(bitmap);
+                    } else if (photto.getFile() != null) {
+                        into.setImageBitmap(BitmapFactory.decodeFile(photto.getFile().getAbsolutePath()));
                     }
+
                 }
 
                 @Override
                 protected Void doInBackground(Void... voids) {
                     if (photto.getUrl() != null) {
-                        if (il.isImageInStorage("/data/data/" + context.getPackageName() + "/app_imageDir", uniqueName + ".jpg") == false) {
-                            Bitmap bitmap = il.getBitmapFromURL(url);
-                            il.saveImageToInternalStorage(bitmap, uniqueName + ".jpg", context.getApplicationContext());
+
+                        if (!photto.getUrl().isEmpty()) {
+                            if (networkConnection()) {
+                                if (il.isImageInStorage("/data/data/" + context.getPackageName() + "/app_imageDir", uniqueName + ".jpg") == false) {
+                                    Bitmap bitmap = il.getBitmapFromURL(url);
+                                    il.saveImageToInternalStorage(bitmap, uniqueName + ".jpg", context.getApplicationContext());
+                                }
+                                if (imageLoadListener != null) {
+                                    imageLoadListener.onImageLoading();
+                                }
+                            } else {
+                                Bitmap bp = il.loadImageFromStorage("/data/data/" + context.getPackageName() + "/app_imageDir", uniqueName + ".jpg");
+                                if (bp != null) {
+                                    imageLoadListener.onError(3);
+                                } else {
+                                    imageLoadListener.onError(1);
+                                }
+                            }
                         }
                     }
                     return null;
