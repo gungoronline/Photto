@@ -48,7 +48,7 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 
-## FROM URI WITH IMAGE LOAD LISTENER (Version: 0.2.0)
+## FROM URL WITH IMAGE LOAD LISTENER (Version: 0.2.0)
 ```groovy
 new Photto.PhottoBuilder(
   getApplicationContext(),
