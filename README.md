@@ -77,7 +77,7 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 
-#Change Logs
+# Change Logs
 - 26.07.2019
 -- Version 0.1.0 has launched.
 -- PhottoBuilder class created
