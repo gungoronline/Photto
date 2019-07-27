@@ -120,7 +120,7 @@ new Photto.PhottoBuilder(
 ## 26.07.2019
 - Version 0.1.0 has launched. (PhottoBuilder class created.FROM URL, FROM URI, FROM BASE64 STRING, FROM ASSETS FOLDER, FROM DRAWABLE added)
 ## 27.07.2019
-- Version 0.1.0 has launched. (FROM FILE, FROM URL WITH IMAGE LOAD LISTENER added)
+- Version 0.2.0 has launched. (FROM FILE, FROM URL WITH IMAGE LOAD LISTENER added)
 
 # Coming Soon (0.3.0)
 - We Thinking to add UploadBuilder
