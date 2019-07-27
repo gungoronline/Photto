@@ -13,7 +13,7 @@ allprojects {
   }
 }
 dependencies {
-  implementation 'com.github.gungoronline:Photto:0.1.0'
+  implementation 'com.github.gungoronline:Photto:0.2.0'
 }
 ```
 or Maven
@@ -21,7 +21,7 @@ or Maven
 <dependency>
    <groupId>com.github.gungoronline</groupId>
    <artifactId>Photto</artifactId>
-   <version>0.1.0</version>
+   <version>0.2.0</version>
 </dependency>
 ```
 
@@ -119,10 +119,10 @@ new Photto.PhottoBuilder(
 # Change Logs
 ## 26.07.2019
 - Version 0.1.0 has launched. (PhottoBuilder class created.FROM URL, FROM URI, FROM BASE64 STRING, FROM ASSETS FOLDER, FROM DRAWABLE added)
+## 27.07.2019
+- Version 0.1.0 has launched. (FROM FILE, FROM URL WITH IMAGE LOAD LISTENER added)
 
-# Coming Soon (0.2.0)
-- FROM FILE
-- FROM URL WITH IMAGE LOAD LISTENER
+# Coming Soon (0.3.0)
 - We Thinking to add UploadBuilder
 
 License
