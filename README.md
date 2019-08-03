@@ -118,6 +118,7 @@ new Photto.PhottoBuilder(
 ```
 
 ## UploadBuilder (Version: 0.3.0)
+NOTE: Only accept .jpg file and max file sizes 1024x1024px (Upload Test Result: 07.08sec upload time)
 -- Java Code
 ```groovy
 HashMap<String, String> hm = new HashMap<String, String>();
