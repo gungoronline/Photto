@@ -117,9 +117,9 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 
-## UploadBuilder (Version: 0.3.0)
+## UploadBuilder
 
-### UPLOAD FROM IMAGEVIEW
+### UPLOAD FROM IMAGEVIEW (Version: 0.3.0)
 NOTE: Only accept .jpg file
 - max file sizes 1024x1024px (Upload Test Result: 00.07.08sec upload time)
 - max file sizes 1200x1200px (Upload Test Result: 00.08.72sec upload time)
@@ -155,7 +155,7 @@ if($_POST){
 ?>
 ```
 
-### UPLOAD FROM IMAGEVIEW WITH RESIZED
+### UPLOAD FROM IMAGEVIEW WITH RESIZED (Version: 0.3.0)
 - 600x600 (Upload Test Result: 00.04.68sec upload time)
 - 400x400 (Upload Test Result: 00.01.98sec upload time)
 ```groovy
