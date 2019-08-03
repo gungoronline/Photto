@@ -123,6 +123,11 @@ new Photto.PhottoBuilder(
 HashMap<String, String> hm = new HashMap<String, String>();
 new Photto.UploadBuilder("https://serifgungor.com/test.php",hm,imageView).upload();
 ```
+-- Also Alternative Usage
+```groovy
+HashMap<String, String> hm = new HashMap<String, String>();
+new Photto.UploadBuilder().uploadUrl("https://serifgungor.com/test.php").hashMap(hm).imageView(imageView).upload();
+```
 -- PHP Code
 ```groovy
 <?php
