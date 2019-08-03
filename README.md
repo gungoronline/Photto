@@ -116,11 +116,41 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 
+## UploadBuilder (Version: 0.3.0)
+-- Java Code
+```groovy
+// If you need show image, you must allow Storage permission
+HashMap<String, String> hm = new HashMap<String, String>();
+new Photto.UploadBuilder("https://serifgungor.com/test.php",hm,imageView).upload();
+```
+-- PHP Code
+```groovy
+<?php
+// You must be POST to imgBase64, because imgBase64 is ImageView's converted decoded string !. If you should extra parameters, u should this.
+if($_POST){
+	$data = $_POST['imgBase64'];
+	$data = str_replace('data:image/png;base64,', '', $data);
+	$data = str_replace(' ', '+', $data);
+	$data = base64_decode($data);
+	$file = ''.rand() . '.png';
+	$success = file_put_contents($file, $data);
+	$data = base64_decode($data); 
+	$source_img = imagecreatefromstring($data);
+	$rotated_img = imagerotate($source_img, 90, 0); 
+	$file = ''. rand(). '.png';
+	$imageSave = imagejpeg($rotated_img, $file, 10);
+	imagedestroy($source_img);
+}
+?>
+```
+
 # Change Logs
 ## 26.07.2019
 - Version 0.1.0 has launched. (PhottoBuilder class created.FROM URL, FROM URI, FROM BASE64 STRING, FROM ASSETS FOLDER, FROM DRAWABLE added)
 ## 27.07.2019
 - Version 0.2.0 has launched. (FROM FILE, FROM URL WITH IMAGE LOAD LISTENER added)
+## 03.08.2019 (Now Adding)
+- Version 0.3.0 has launched. (UploadBuilder class created. Can you upload to website imageView on image)
 
 # Coming Soon (0.3.0)
 - We Thinking to add UploadBuilder
