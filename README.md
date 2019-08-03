@@ -13,7 +13,7 @@ allprojects {
   }
 }
 dependencies {
-  implementation 'com.github.gungoronline:Photto:0.2.0'
+  implementation 'com.github.gungoronline:Photto:0.3.0'
 }
 ```
 or Maven
@@ -21,7 +21,7 @@ or Maven
 <dependency>
    <groupId>com.github.gungoronline</groupId>
    <artifactId>Photto</artifactId>
-   <version>0.2.0</version>
+   <version>0.3.0</version>
 </dependency>
 ```
 
@@ -177,7 +177,7 @@ new Photto.UploadBuilder("https://siteurl.com/test.php",hm,0,imageView).upload()
 - Version 0.1.0 has launched. (PhottoBuilder class created.FROM URL, FROM URI, FROM BASE64 STRING, FROM ASSETS FOLDER, FROM DRAWABLE added)
 ## 27.07.2019
 - Version 0.2.0 has launched. (FROM FILE, FROM URL WITH IMAGE LOAD LISTENER added)
-## 03.08.2019 (Now Adding)
+## 04.08.2019
 - Version 0.3.0 has launched. (UploadBuilder class created. You can upload the imageView content to the Web site)
 
 # Maybe later... (0.4.0)
