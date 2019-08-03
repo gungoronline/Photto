@@ -119,6 +119,8 @@ new Photto.PhottoBuilder(
 
 ## UploadBuilder
 
+The easiest way, upload your images to the web server !
+
 ### UPLOAD FROM IMAGEVIEW (Version: 0.3.0)
 NOTE: Only accept .jpg file
 - max file sizes 1024x1024px (Upload Test Result: 00.07.08sec upload time)
