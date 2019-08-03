@@ -178,8 +178,7 @@ new Photto.UploadBuilder("https://serifgungor.com/test.php",hm,0,imageView).uplo
 ## 03.08.2019 (Now Adding)
 - Version 0.3.0 has launched. (UploadBuilder class created. You can upload the imageView content to the Web site)
 
-# Coming Soon (0.3.0)
-- We Thinking to add UploadBuilder
+# Maybe later... (0.4.0)
 - You got a new idea? Send a message to: contact@serifgungor.com
 
 Helpers
