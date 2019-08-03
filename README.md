@@ -119,7 +119,6 @@ new Photto.PhottoBuilder(
 ## UploadBuilder (Version: 0.3.0)
 -- Java Code
 ```groovy
-// If you need show image, you must allow Storage permission
 HashMap<String, String> hm = new HashMap<String, String>();
 new Photto.UploadBuilder("https://serifgungor.com/test.php",hm,imageView).upload();
 ```
