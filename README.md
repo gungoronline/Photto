@@ -155,7 +155,7 @@ if($_POST){
 ## 27.07.2019
 - Version 0.2.0 has launched. (FROM FILE, FROM URL WITH IMAGE LOAD LISTENER added)
 ## 03.08.2019 (Now Adding)
-- Version 0.3.0 has launched. (UploadBuilder class created. Can you upload to website imageView on image)
+- Version 0.3.0 has launched. (UploadBuilder class created. You can upload to website imageView on image)
 
 # Coming Soon (0.3.0)
 - We Thinking to add UploadBuilder
