@@ -3,7 +3,16 @@ package com.gungoronline.photto.Model;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.ThumbnailUtils;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -13,10 +22,13 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
+import com.gungoronline.photto.Helper.HttpUtility;
 import com.gungoronline.photto.Helper.ImageLibrary;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.util.HashMap;
 
 public class Photto {
     private Context context;
@@ -29,6 +41,19 @@ public class Photto {
     private byte[] decodedString;
     private File file;
 
+    private String uploadDecodedString;
+    private String uploadUrl;
+    private HashMap<String,String> uploadParams;
+    private ImageView uploadImageView;
+    private int imageResize;
+
+    public Photto(UploadBuilder uploadBuilder){
+        this.uploadUrl = uploadBuilder.uploadUrl;
+        this.uploadImageView = uploadBuilder.uploadImageView;
+        this.uploadDecodedString = uploadBuilder.uploadDecodedString;
+        this.uploadParams = uploadBuilder.uploadParams;
+        this.imageResize = uploadBuilder.imageResize;
+    }
 
     public Photto(PhottoBuilder phottoBuilder) {
         this.context = phottoBuilder.context;
@@ -74,13 +99,116 @@ public class Photto {
         return inputStream;
     }
 
-    @Override
-    public String toString() {
-        return "Photto{" +
-                "context=" + context +
-                ", url='" + url + '\'' +
-                ", uniqueName='" + uniqueName + '\'' +
-                '}';
+    public static class UploadBuilder{
+        private ImageView uploadImageView;
+        private HashMap<String,String> uploadParams;
+        private String uploadUrl;
+        private String uploadDecodedString;
+        private int imageResize;
+
+        Photto photto;
+        private boolean networkConnection() {
+            ConnectivityManager conMgr = (ConnectivityManager) uploadImageView.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (conMgr.getActiveNetworkInfo() != null && conMgr.getActiveNetworkInfo().isAvailable() && conMgr.getActiveNetworkInfo().isConnected()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public UploadBuilder(){
+        }
+        public UploadBuilder(String uploadUrl,HashMap<String,String> hashMap,ImageView imageView){
+            this.uploadImageView = imageView;
+            this.uploadUrl = uploadUrl;
+            this.uploadParams = hashMap;
+        }
+        public UploadBuilder(String uploadUrl,HashMap<String,String> hashMap,int imageResize,ImageView imageView){
+            this.uploadImageView = imageView;
+            this.uploadUrl = uploadUrl;
+            this.uploadParams = hashMap;
+            this.imageResize = imageResize;
+        }
+
+
+
+        public UploadBuilder hashMap(HashMap<String,String> hashMap) {
+            this.uploadParams = hashMap;
+            return this;
+        }
+        public UploadBuilder uploadUrl(String uploadUrl) {
+            this.uploadUrl = uploadUrl;
+            return this;
+        }
+        public UploadBuilder imageView(ImageView imageView) {
+            this.uploadImageView = imageView;
+            return this;
+        }
+        public UploadBuilder imageResize(int imageResize){
+            this.imageResize = imageResize;
+            return this;
+        }
+
+
+        private Bitmap getResizedBitmap(Bitmap bitmapOrg,int resize) {
+            Paint paint = new Paint();
+            paint.setFilterBitmap(true);
+            int targetWidth  = bitmapOrg.getWidth() / resize;
+            int targetHeight = bitmapOrg.getHeight() / resize;
+            Bitmap bmp = Bitmap.createBitmap(targetWidth, targetHeight,Bitmap.Config.ARGB_8888);
+            RectF rectf = new RectF(0, 0, targetWidth, targetHeight);
+            Canvas c = new Canvas(bmp);
+            Path path = new Path();
+            path.addRect(rectf, Path.Direction.CW);
+            c.clipPath(path);
+            c.drawBitmap( bitmapOrg, new Rect(0, 0, bitmapOrg.getWidth(), bitmapOrg.getHeight()),
+                    new Rect(0, 0, targetWidth, targetHeight), paint);
+            Matrix matrix = new Matrix();
+            matrix.postScale(1f, 1f);
+            Bitmap resizedBitmap = Bitmap.createBitmap(bmp, 0, 0, targetWidth, targetHeight, matrix, true);
+            return resizedBitmap;
+        }
+
+
+        public Photto upload() {
+            photto = new Photto(this);
+
+
+
+            Bitmap bitmap = ((BitmapDrawable) this.uploadImageView.getDrawable()).getBitmap();
+
+
+            if(imageResize!=0){
+                bitmap = getResizedBitmap(bitmap,imageResize);
+            }
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] imageInByte = baos.toByteArray();
+
+            // send params with Hash Map
+            HashMap<String, String> params = this.uploadParams;
+            params.put("imgBase64",Base64.encodeToString(imageInByte, 0));
+            String url = this.uploadUrl;
+
+            // static class "HttpUtility" with static method "newRequest(url,method,callback)"
+            HttpUtility.newRequest(url,HttpUtility.METHOD_POST,params, new HttpUtility.Callback() {
+                @Override
+                public void OnSuccess(String response) {
+                    // on success
+                    Log.d("UploadBuilder","Server OnSuccess response="+response);
+                }
+                @Override
+                public void OnError(int status_code, String message) {
+                    // on error
+                    Log.d("UploadBuilder","Server OnError status_code="+status_code+" message="+message);
+                }
+            });
+
+
+            return photto;
+        }
+
     }
 
     public static class PhottoBuilder {
