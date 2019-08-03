@@ -118,6 +118,8 @@ new Photto.PhottoBuilder(
 ```
 
 ## UploadBuilder (Version: 0.3.0)
+
+### UPLOAD FROM IMAGEVIEW
 NOTE: Only accept .jpg file
 - max file sizes 1024x1024px (Upload Test Result: 00.07.08sec upload time)
 - max file sizes 1200x1200px (Upload Test Result: 00.08.72sec upload time)
