@@ -129,14 +129,14 @@ NOTE: Only accept .jpg file
 -- Java Code
 ```groovy
 HashMap<String, String> hm = new HashMap<String, String>();
-new Photto.UploadBuilder("https://serifgungor.com/test.php",hm,imageView).upload();
+new Photto.UploadBuilder("https://siteurl.com/test.php",hm,imageView).upload();
 ```
 -- Also Alternative Usage
 ```groovy
 HashMap<String, String> hm = new HashMap<String, String>();
-new Photto.UploadBuilder().uploadUrl("https://serifgungor.com/test.php").hashMap(hm).imageView(imageView).upload();
+new Photto.UploadBuilder().uploadUrl("https://siteurl.com/test.php").hashMap(hm).imageView(imageView).upload();
 ```
--- PHP Code
+-- PHP Code (test.php)
 ```groovy
 <?php
 // You must be POST to imgBase64, because imgBase64 is ImageView's converted decoded string !. If you should extra parameters, u should this.
@@ -163,13 +163,13 @@ if($_POST){
 ```groovy
 //If original image size is 1200x1200; imageResize(2) = 600x600 response, imageResize(3) = 300x300 response
 HashMap<String, String> hm = new HashMap<String, String>();
-new Photto.UploadBuilder().uploadUrl("https://serifgungor.com/test.php").imageResize(3).hashMap(hm).imageView(imageView).upload();
+new Photto.UploadBuilder().uploadUrl("https://siteurl.com/test.php").imageResize(3).hashMap(hm).imageView(imageView).upload();
 ```
 Also alternative
 ```groovy
 //If you set to imageResize value 0, image do not resizing.
 HashMap<String, String> hm = new HashMap<String, String>();
-new Photto.UploadBuilder("https://serifgungor.com/test.php",hm,0,imageView).upload();
+new Photto.UploadBuilder("https://siteurl.com/test.php",hm,0,imageView).upload();
 ```
 
 # Change Logs
