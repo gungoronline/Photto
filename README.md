@@ -161,6 +161,12 @@ if($_POST){
 HashMap<String, String> hm = new HashMap<String, String>();
 new Photto.UploadBuilder().uploadUrl("https://serifgungor.com/test.php").imageResize(3).hashMap(hm).imageView(imageView).upload();
 ```
+Also alternative
+```groovy
+//If you set to imageResize value 0, image do not resizing.
+HashMap<String, String> hm = new HashMap<String, String>();
+new Photto.UploadBuilder("https://serifgungor.com/test.php",hm,0,imageView).upload();
+```
 
 # Change Logs
 ## 26.07.2019
