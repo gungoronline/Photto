@@ -28,7 +28,8 @@ or Maven
 
 # How to use ?
 
-## FROM URI
+## PhottoBuilder class
+### FROM URI
 ```groovy
 new Photto.PhottoBuilder(
   getApplicationContext(),
@@ -37,7 +38,7 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 
-## FROM URL
+### FROM URL
 - If you want to display an image in the ImageView object on the website, you can use the following method. It downloads the image from the website and caches it from being downloaded continuously.
 ```groovy
 new Photto.PhottoBuilder(
@@ -47,7 +48,7 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 
-## FROM URL WITH IMAGE LOAD LISTENER (Version: 0.2.0)
+### FROM URL WITH IMAGE LOAD LISTENER (Version: 0.2.0)
 ```groovy
 new Photto.PhottoBuilder(
   getApplicationContext(),
@@ -75,7 +76,7 @@ new Photto.PhottoBuilder(
   (ImageView) findViewById(R.id.imageView)
 ).build();
 ```
-## FROM FILE (Version: 0.2.0)
+### FROM FILE (Version: 0.2.0)
 ```groovy
 // If you need show image, you must allow Storage permission
 new Photto.PhottoBuilder(
@@ -84,7 +85,7 @@ new Photto.PhottoBuilder(
   (ImageView) findViewById(R.id.imageView)
 ).build();
 ```
-## FROM DRAWABLE
+### FROM DRAWABLE
 ```groovy
 new Photto.PhottoBuilder(
   this,
@@ -93,7 +94,7 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 
-## FROM ASSETS FOLDER
+### FROM ASSETS FOLDER
 ```groovy
 try {
   new Photto.PhottoBuilder(
@@ -106,7 +107,7 @@ try {
 }
 ```
 
-## FROM BASE64 STRING
+### FROM BASE64 STRING
 ```groovy
 new Photto.PhottoBuilder(
   this,
