@@ -157,8 +157,8 @@ if($_POST){
 
 ### UPLOAD FROM IMAGEVIEW WITH RESIZED
 ```groovy
-If original image size is 1200x1200; imageResize(2) = 600x600 response, imageResize(3) = 300x300 response
- HashMap<String, String> hm = new HashMap<String, String>();
+//If original image size is 1200x1200; imageResize(2) = 600x600 response, imageResize(3) = 300x300 response
+HashMap<String, String> hm = new HashMap<String, String>();
 new Photto.UploadBuilder().uploadUrl("https://serifgungor.com/test.php").imageResize(3).hashMap(hm).imageView(imageView).upload();
 ```
 
