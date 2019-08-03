@@ -1,3 +1,4 @@
+![Java](/photto_logo.jpg)
 # Photto
 Photto is a Image Upload, Image Caching and Picture Display Library for Android Projects.
 
