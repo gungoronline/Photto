@@ -157,6 +157,7 @@ if($_POST){
 
 ### UPLOAD FROM IMAGEVIEW WITH RESIZED
 - 600x600 (Upload Test Result: 00.04.68sec upload time)
+- 400x400 (Upload Test Result: 00.01.98sec upload time)
 ```groovy
 //If original image size is 1200x1200; imageResize(2) = 600x600 response, imageResize(3) = 300x300 response
 HashMap<String, String> hm = new HashMap<String, String>();
