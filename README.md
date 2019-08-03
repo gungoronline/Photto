@@ -1,5 +1,5 @@
 # Photto
-Photto is a Image Caching and ImageShow Library for Android Projects.
+Photto is a Image Upload, Image Caching and Picture Display Library for Android Projects.
 
 - Project by [@serifgungor](https://github.com/serifgungor) and Generated in 26.07.2019. Last revision at 27.07.2019
 
@@ -159,6 +159,11 @@ if($_POST){
 
 # Coming Soon (0.3.0)
 - We Thinking to add UploadBuilder
+
+Helpers
+--------
+- Java AsyncTask class used.
+- Java HttpUrlConnection class used.
 
 License
 --------
