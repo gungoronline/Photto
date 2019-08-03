@@ -162,8 +162,8 @@ if($_POST){
 
 Helpers
 --------
-- Java AsyncTask class used.
-- Java HttpUrlConnection class used.
+- Java Thread, AsyncTask classes used.
+- Java HttpUrlConnection/HttpsUrlConnection classes used.
 
 License
 --------
