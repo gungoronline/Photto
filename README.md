@@ -159,6 +159,7 @@ if($_POST){
 
 # Coming Soon (0.3.0)
 - We Thinking to add UploadBuilder
+- You got a new idea? Send a message to: contact@serifgungor.com
 
 Helpers
 --------
