@@ -120,6 +120,8 @@ new Photto.PhottoBuilder(
 
 ## UploadBuilder
 
+[Video on YouTube - Photto ImageUpload](https://youtu.be/6BrEVHpUv1s)
+
 The easiest way, upload your images to the web server !
 
 ### UPLOAD FROM IMAGEVIEW (Version: 0.3.0)
