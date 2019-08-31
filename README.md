@@ -5,6 +5,8 @@ Photto is a Image Upload, Image Caching and Picture Display Library for Android 
 - Project by [@serifgungor](https://github.com/serifgungor) and Generated in 26.07.2019. Last revision at 04.08.2019
 
 # Installation
+[![](https://jitpack.io/v/gungoronline/Photto.svg)](https://jitpack.io/#gungoronline/Photto)
+
 Gradle
 ```groovy
 allprojects {
