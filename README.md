@@ -177,8 +177,8 @@ HashMap<String, String> hm = new HashMap<String, String>();
 new Photto.UploadBuilder("https://siteurl.com/test.php",hm,0,imageView).upload();
 ```
 
-## ZoomTouchView  (View Class)
-### (Added This Version: 0.4.0)
+## PhotoView (View Class)
+### ZoomTouchView (Added This Version: 0.4.0)
 
 ```groovy
 <com.gungoronline.photto.PhotoView.ZoomTouchView
