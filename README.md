@@ -2,7 +2,7 @@
 # Photto
 Photto is a Image Upload, Image Caching and Picture Display Library for Android Projects.
 
-- Project by [@serifgungor](https://github.com/serifgungor) and Generated in 26.07.2019. Last revision at 04.08.2019
+- Project by [@serifgungor](https://github.com/serifgungor) and Generated in 26.07.2019. Last revision at 07.09.2019
 
 # Installation
 [![](https://jitpack.io/v/gungoronline/Photto.svg)](https://jitpack.io/#gungoronline/Photto)
@@ -24,7 +24,7 @@ or Maven
 <dependency>
    <groupId>com.github.gungoronline</groupId>
    <artifactId>Photto</artifactId>
-   <version>0.3.0</version>
+   <version>0.4.0</version>
 </dependency>
 ```
 
@@ -184,8 +184,10 @@ new Photto.UploadBuilder("https://siteurl.com/test.php",hm,0,imageView).upload()
 - Version 0.2.0 has launched. (FROM FILE, FROM URL WITH IMAGE LOAD LISTENER added)
 ## 04.08.2019
 - Version 0.3.0 has launched. (UploadBuilder class created. You can upload the imageView content to the Web site)
+## 07.09.2019
+- Version 0.4.0 has launched. (ZoomTouchView added. ImageView Supported Pinch Zoom and Double-Touch Zoom)
 
-# Maybe later... (0.4.0)
+# Maybe later... (0.5.0)
 - You got a new idea? Send a message to: contact@serifgungor.com
 
 Helpers
