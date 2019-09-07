@@ -16,7 +16,7 @@ allprojects {
   }
 }
 dependencies {
-  implementation 'com.github.gungoronline:Photto:0.3.0'
+  implementation 'com.github.gungoronline:Photto:0.4.0'
 }
 ```
 or Maven
