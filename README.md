@@ -177,6 +177,15 @@ HashMap<String, String> hm = new HashMap<String, String>();
 new Photto.UploadBuilder("https://siteurl.com/test.php",hm,0,imageView).upload();
 ```
 
+## ZoomTouchView  (View Class)
+### (Added This Version: 0.4.0)
+
+```groovy
+//If original image size is 1200x1200; imageResize(2) = 600x600 response, imageResize(3) = 300x300 response
+HashMap<String, String> hm = new HashMap<String, String>();
+new Photto.UploadBuilder().uploadUrl("https://siteurl.com/test.php").imageResize(3).hashMap(hm).imageView(imageView).upload();
+```
+
 # Change Logs
 ## 26.07.2019
 - Version 0.1.0 has launched. (PhottoBuilder class created.FROM URL, FROM URI, FROM BASE64 STRING, FROM ASSETS FOLDER, FROM DRAWABLE added)
