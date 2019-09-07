@@ -31,7 +31,7 @@ or Maven
 
 # How to use ?
 
-## PhottoBuilder class
+## PhottoBuilder (Class)
 ### FROM URI
 ```groovy
 new Photto.PhottoBuilder(
@@ -120,7 +120,7 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 
-## UploadBuilder
+## UploadBuilder (Class)
 
 [Video on YouTube - Photto ImageUpload](https://youtu.be/6BrEVHpUv1s)
 
@@ -181,9 +181,10 @@ new Photto.UploadBuilder("https://siteurl.com/test.php",hm,0,imageView).upload()
 ### (Added This Version: 0.4.0)
 
 ```groovy
-//If original image size is 1200x1200; imageResize(2) = 600x600 response, imageResize(3) = 300x300 response
-HashMap<String, String> hm = new HashMap<String, String>();
-new Photto.UploadBuilder().uploadUrl("https://siteurl.com/test.php").imageResize(3).hashMap(hm).imageView(imageView).upload();
+<com.gungoronline.photto.PhotoView.ZoomTouchView
+	android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:srcCompat="@mipmap/ic_launcher" />
 ```
 
 # Change Logs
