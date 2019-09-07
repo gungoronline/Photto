@@ -205,6 +205,7 @@ Helpers
 --------
 - Java Thread, AsyncTask classes used.
 - Java HttpUrlConnection/HttpsUrlConnection classes used.
+- PhotoView Library
 
 License
 --------
