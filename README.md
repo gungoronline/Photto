@@ -1,4 +1,4 @@
-![Photto Image Cache](/photto_logo.jpg)
+![Photto Image Cache](/phottov4.jpg)
 # Photto
 Photto is a Image Upload, Image Caching, Picture Display and Image Zoom Library for Android Projects.
 
