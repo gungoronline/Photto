@@ -179,6 +179,7 @@ new Photto.UploadBuilder("https://siteurl.com/test.php",hm,0,imageView).upload()
 
 ## PhotoView (View Class)
 ### ZoomTouchView (Added This Version: 0.4.0)
+ImageView supported Double-Touch to Zoom and Pinch to Zoom !
 
 ```groovy
 <com.gungoronline.photto.PhotoView.ZoomTouchView
