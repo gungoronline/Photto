@@ -122,6 +122,7 @@ new Photto.PhottoBuilder(
 
 ## UploadBuilder (Class)
 ![Photto Image Upload](/ftp_upload.jpg)
+
 [Video on YouTube - Photto ImageUpload](https://youtu.be/6BrEVHpUv1s)
 
 The easiest way, upload your images to the web server !
