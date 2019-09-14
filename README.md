@@ -32,6 +32,8 @@ or Maven
 # How to use ?
 
 ## PhottoBuilder (Class)
+![Photto Image View](/from_image.jpg)
+
 ### FROM URI
 ```groovy
 new Photto.PhottoBuilder(
