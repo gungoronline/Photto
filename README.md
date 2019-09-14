@@ -179,6 +179,9 @@ new Photto.UploadBuilder("https://siteurl.com/test.php",hm,0,imageView).upload()
 ```
 
 ## PhotoView (View Class)
+
+![Photto Image Zoom](/imageview_zoom.jpg)
+
 ### ZoomTouchView (Added This Version: 0.4.0)
 ImageView supported Double-Touch to Zoom and Pinch to Zoom !
 
