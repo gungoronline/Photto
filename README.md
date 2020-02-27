@@ -194,6 +194,9 @@ ImageView supported Double-Touch to Zoom and Pinch to Zoom !
         app:srcCompat="@mipmap/ic_launcher" />
 ```
 
+## BitmapBuilder (Class)
+![Photto Image Upload](/ftp_upload.jpg)
+
 # Change Logs
 ## 26.07.2019
 - Version 0.1.0 has launched. (PhottoBuilder class created.FROM URL, FROM URI, FROM BASE64 STRING, FROM ASSETS FOLDER, FROM DRAWABLE added)
