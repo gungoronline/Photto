@@ -223,7 +223,7 @@ iv.setImageBitmap(b);
 - Version 0.4.0 has launched. (ZoomTouchView added. ImageView Supported Pinch Zoom and Double-Touch Zoom)
 ## 27.02.2020
 - Version 0.5.0 has starting development. The new version comes with the BitmapBuilder class.
-- BitmapBuilder Type1 is OK !
+- BitmapBuilder Type1 and Type2 is OK !
 
 # Maybe later... (0.5.0)
 - You got a new idea? Send a message to: contact@serifgungor.com
