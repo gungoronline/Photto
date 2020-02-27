@@ -196,6 +196,14 @@ ImageView supported Double-Touch to Zoom and Pinch to Zoom !
 
 ## BitmapBuilder (Class)
 ![Photto Image Upload](/bitmapbuilder.png)
+- Bitmap Type 1
+
+```groovy
+File[] files = new File[1];
+files[0] = new File("/storage/emulated/0/tr.jpg");
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"@serifgungor", BitmapType.TYPE_1).build();
+iv.setImageBitmap(b);
+```
 
 # Change Logs
 ## 26.07.2019
