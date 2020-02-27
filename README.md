@@ -195,7 +195,7 @@ ImageView supported Double-Touch to Zoom and Pinch to Zoom !
 ```
 
 ## BitmapBuilder (Class)
-![Photto Image Upload](/ftp_upload.jpg)
+![Photto Image Upload](/bitmapbuilder.png)
 
 # Change Logs
 ## 26.07.2019
