@@ -177,6 +177,9 @@ public Image Base64ToImage(string base64String)
         return image;
     }
  }
+ string value = Request.Form["imgBase64"];
+ Image img = Base64ToImage(value);
+ img.Save(path);
 ```
 
 ### UPLOAD FROM IMAGEVIEW WITH RESIZED (Version: 0.3.0)
