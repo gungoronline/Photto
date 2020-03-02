@@ -236,6 +236,8 @@ File[] files = new File[]{new File("/storage/emulated/0/picture1.jpg"),new File(
 Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_3).build();
 iv.setImageBitmap(b);
 ```
+### Bitmap Type 4
+![Photto Image Upload](/bitmapbuilder4.png)
 
 # Change Logs
 ## 26.07.2019
