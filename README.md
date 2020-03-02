@@ -238,6 +238,8 @@ iv.setImageBitmap(b);
 ```
 ### Bitmap Type 4
 ![Photto Image Upload](/bitmapbuilder4.png)
+### Bitmap Type 5
+![Photto Image Upload](/bitmapbuilder5.png)
 
 # Change Logs
 ## 26.07.2019
