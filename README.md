@@ -238,8 +238,23 @@ iv.setImageBitmap(b);
 ```
 ### Bitmap Type 4
 ![Photto Image Upload](/bitmapbuilder4.png)
+```groovy
+File[] files = new File[]{new File("/storage/emulated/0/picture1.jpg")};
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_4).build();
+iv.setImageBitmap(b);
+```
 ### Bitmap Type 5
 ![Photto Image Upload](/bitmapbuilder5.png)
+```groovy
+File[] files = new File[]{
+	new File("/storage/emulated/0/picture1.jpg"),
+	new File("/storage/emulated/0/picture2.jpg"),
+	new File("/storage/emulated/0/picture3.jpg"),
+	new File("/storage/emulated/0/picture4.jpg")
+};
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_5).build();
+iv.setImageBitmap(b);
+```
 
 # Change Logs
 ## 26.07.2019
