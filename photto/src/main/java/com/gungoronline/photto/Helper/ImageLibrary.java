@@ -46,6 +46,17 @@ public class ImageLibrary {
         }
         return b;
     }
+    public Bitmap loadImageFromFile(File f){
+        Bitmap b = null;
+        try {
+            b = BitmapFactory.decodeStream(new FileInputStream(f));
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        return b;
+    }
 
     public boolean isImageInStorage(String path,String fileName){
         boolean b = false;
