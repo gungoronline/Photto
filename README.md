@@ -1,9 +1,12 @@
+![Photto Image Cache](/phottov4.jpg)
 # Photto
-Photto is a Image Upload, Image Caching and Picture Display Library for Android Projects.
+Photto is a Image Upload, Image Caching, Picture Display, Photo Collage and Image Zoom Library for Android Projects.
 
-- Project by [@serifgungor](https://github.com/serifgungor) and Generated in 26.07.2019. Last revision at 04.08.2019
+- Project by [@serifgungor](https://github.com/serifgungor) and Generated in 26.07.2019. Last revision at 07.09.2019
 
 # Installation
+[![](https://jitpack.io/v/gungoronline/Photto.svg)](https://jitpack.io/#gungoronline/Photto)
+
 Gradle
 ```groovy
 allprojects {
@@ -13,7 +16,7 @@ allprojects {
   }
 }
 dependencies {
-  implementation 'com.github.gungoronline:Photto:0.2.0'
+  implementation 'com.github.gungoronline:Photto:0.4.0'
 }
 ```
 or Maven
@@ -21,14 +24,16 @@ or Maven
 <dependency>
    <groupId>com.github.gungoronline</groupId>
    <artifactId>Photto</artifactId>
-   <version>0.2.0</version>
+   <version>0.4.0</version>
 </dependency>
 ```
 
 
 # How to use ?
 
-## PhottoBuilder class
+## PhottoBuilder (Class)
+![Photto Image View](/from_image.jpg)
+
 ### FROM URI
 ```groovy
 new Photto.PhottoBuilder(
@@ -117,7 +122,10 @@ new Photto.PhottoBuilder(
 ).build();
 ```
 
-## UploadBuilder
+## UploadBuilder (Class)
+![Photto Image Upload](/ftp_upload.jpg)
+
+[Video on YouTube - Photto ImageUpload](https://youtu.be/6BrEVHpUv1s)
 
 The easiest way, upload your images to the web server !
 
@@ -156,6 +164,23 @@ if($_POST){
 }
 ?>
 ```
+-- C#(ASP.net) Not tested yet
+```groovy
+public Image Base64ToImage(string base64String)
+ {
+    // Convert base 64 string to byte[]
+    byte[] imageBytes = Convert.FromBase64String(base64String);
+    // Convert byte[] to Image
+    using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+    {
+        Image image = Image.FromStream(ms, true);
+        return image;
+    }
+ }
+ string value = Request.Form["imgBase64"];
+ Image img = Base64ToImage(value);
+ img.Save(path);
+```
 
 ### UPLOAD FROM IMAGEVIEW WITH RESIZED (Version: 0.3.0)
 - 600x600 (Upload Test Result: 00.04.68sec upload time)
@@ -172,21 +197,87 @@ HashMap<String, String> hm = new HashMap<String, String>();
 new Photto.UploadBuilder("https://siteurl.com/test.php",hm,0,imageView).upload();
 ```
 
+## PhotoView (View Class)
+
+![Photto Image Zoom](/imageview_zoom.jpg)
+
+### ZoomTouchView (Added This Version: 0.4.0)
+ImageView supported Double-Touch to Zoom and Pinch to Zoom !
+
+```groovy
+<com.gungoronline.photto.PhotoView.ZoomTouchView
+	android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+```
+
+## BitmapBuilder (Class)
+
+### Bitmap Type 1
+![Photto Image Upload](/bitmapbuilder.png)
+```groovy
+File[] files = new File[]{new File("/storage/emulated/0/tr.jpg")};
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"@serifgungor", BitmapType.TYPE_1).build();
+iv.setImageBitmap(b);
+```
+
+### Bitmap Type 2
+![Photto Image Upload](/bitmapbuilder2.png)
+```groovy
+File[] files = new File[]{new File("/storage/emulated/0/photo1.jpg"),new File("/storage/emulated/0/photo2.jpg")};
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_2).build();
+iv.setImageBitmap(b);
+```
+
+### Bitmap Type 3
+![Photto Image Upload](/bitmapbuilder3.png)
+```groovy
+File[] files = new File[]{new File("/storage/emulated/0/picture1.jpg"),new File("/storage/emulated/0/picture2.jpg")};
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_3).build();
+iv.setImageBitmap(b);
+```
+### Bitmap Type 4
+![Photto Image Upload](/bitmapbuilder4.png)
+```groovy
+File[] files = new File[]{new File("/storage/emulated/0/picture1.jpg")};
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_4).build();
+iv.setImageBitmap(b);
+```
+### Bitmap Type 5
+![Photto Image Upload](/bitmapbuilder5.png)
+```groovy
+File[] files = new File[]{
+	new File("/storage/emulated/0/picture1.jpg"),
+	new File("/storage/emulated/0/picture2.jpg"),
+	new File("/storage/emulated/0/picture3.jpg"),
+	new File("/storage/emulated/0/picture4.jpg")
+};
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_5).build();
+iv.setImageBitmap(b);
+```
+
 # Change Logs
 ## 26.07.2019
 - Version 0.1.0 has launched. (PhottoBuilder class created.FROM URL, FROM URI, FROM BASE64 STRING, FROM ASSETS FOLDER, FROM DRAWABLE added)
 ## 27.07.2019
 - Version 0.2.0 has launched. (FROM FILE, FROM URL WITH IMAGE LOAD LISTENER added)
-## 03.08.2019 (Now Adding)
+## 04.08.2019
 - Version 0.3.0 has launched. (UploadBuilder class created. You can upload the imageView content to the Web site)
+## 07.09.2019
+- Version 0.4.0 has launched. (ZoomTouchView added. ImageView Supported Pinch Zoom and Double-Touch Zoom)
+## 01.08.2020
+- Version 0.5.0 has launched.
+- The new version comes with the BitmapBuilder class. BitmapBuilder Type1, Type2 and Type3 is OK ! (27.02.2020)
+- BitmapBuilder Type4 and Type5 is OK ! (02.03.2020)
 
-# Maybe later... (0.4.0)
+# Maybe later... (0.6.0)
 - You got a new idea? Send a message to: contact@serifgungor.com
 
 Helpers
 --------
 - Java Thread, AsyncTask classes used.
 - Java HttpUrlConnection/HttpsUrlConnection classes used.
+- chrisbanes / PhotoView Library
 
 License
 --------
