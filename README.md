@@ -16,7 +16,7 @@ allprojects {
   }
 }
 dependencies {
-  implementation 'com.github.gungoronline:Photto:0.4.0'
+  implementation 'com.github.gungoronline:Photto:0.5.0'
 }
 ```
 or Maven
@@ -24,7 +24,7 @@ or Maven
 <dependency>
    <groupId>com.github.gungoronline</groupId>
    <artifactId>Photto</artifactId>
-   <version>0.4.0</version>
+   <version>0.5.0</version>
 </dependency>
 ```
 
