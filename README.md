@@ -265,13 +265,12 @@ iv.setImageBitmap(b);
 - Version 0.3.0 has launched. (UploadBuilder class created. You can upload the imageView content to the Web site)
 ## 07.09.2019
 - Version 0.4.0 has launched. (ZoomTouchView added. ImageView Supported Pinch Zoom and Double-Touch Zoom)
-## 27.02.2020
-- Version 0.5.0 has starting development. The new version comes with the BitmapBuilder class.
-- BitmapBuilder Type1, Type2 and Type3 is OK !
-## 02.03.2020
-- BitmapBuilder Type4 and Type5 yet created !
+## 01.08.2020
+- Version 0.5.0 has launched.
+- The new version comes with the BitmapBuilder class. BitmapBuilder Type1, Type2 and Type3 is OK ! (27.02.2020)
+- BitmapBuilder Type4 and Type5 is OK ! (02.03.2020)
 
-# Maybe later... (0.5.0)
+# Maybe later... (0.6.0)
 - You got a new idea? Send a message to: contact@serifgungor.com
 
 Helpers
