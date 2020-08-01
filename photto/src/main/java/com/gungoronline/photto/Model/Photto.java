@@ -25,6 +25,7 @@ import androidx.annotation.Nullable;
 import com.gungoronline.photto.Helper.HttpUtility;
 import com.gungoronline.photto.Helper.ImageLibrary;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
@@ -46,6 +47,14 @@ public class Photto {
     private HashMap<String,String> uploadParams;
     private ImageView uploadImageView;
     private int imageResize;
+
+
+    private Bitmap bitmap;
+
+  public Photto(BitmapBuilder bitmapBuilder){
+      this.bitmap = bitmap;
+      this.context = bitmapBuilder.context;
+  }
 
     public Photto(UploadBuilder uploadBuilder){
         this.uploadUrl = uploadBuilder.uploadUrl;
@@ -209,6 +218,208 @@ public class Photto {
             return photto;
         }
 
+    }
+
+    public static class BitmapBuilder{
+        private Context context;
+        Photto photto;
+        ImageLibrary il;
+        private int type;
+        private String message;
+        private File[] files;
+
+        public Bitmap storiesCanvas_type1(String text,Bitmap image){
+            Bitmap bm1 = null;
+            Bitmap newBitmap = null;
+
+            //FOR FULL QUALITY
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            image.compress(Bitmap.CompressFormat.PNG, 100, out);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = false;
+            Bitmap decoded = BitmapFactory.decodeStream(new ByteArrayInputStream(out.toByteArray()),null,options);
+
+
+            bm1 = Bitmap.createScaledBitmap(decoded, 740, 1600, false);
+            Bitmap.Config config = bm1.getConfig();
+            if (config == null) {
+                config = Bitmap.Config.ARGB_8888;
+            }
+
+
+            newBitmap = Bitmap.createBitmap(1080, 1920, config);
+            Canvas newCanvas = new Canvas(newBitmap);
+
+
+            Paint paintText = new Paint();
+            paintText.setColor(Color.BLACK);
+            paintText.setTextSize(80);
+            paintText.setTextAlign(Paint.Align.RIGHT);
+            paintText.setStyle(Paint.Style.FILL);
+
+            Rect rectText = new Rect();
+            paintText.getTextBounds(text, 0, text.length(), rectText);
+            newCanvas.translate(800, 50);
+
+            newCanvas.drawColor(Color.WHITE);
+            newCanvas.rotate(90);
+            newCanvas.drawText(text,0,text.length(),1000, -110, paintText);
+
+            newCanvas.save();
+            newCanvas.rotate(-90);
+            newCanvas.translate(-800,50);
+            newCanvas.drawBitmap(bm1, 50, 50, null);
+            return newBitmap;
+        }
+
+        public Bitmap storiesCanvas_type2(Bitmap image1,Bitmap image2){
+
+            Bitmap bm1 = null;
+            Bitmap bm2 = null;
+            Bitmap newBitmap = null;
+
+            bm1 = Bitmap.createScaledBitmap(image1, 904, 764, false);
+            bm2 = Bitmap.createScaledBitmap(image2, 904, 764, false);
+
+
+            Bitmap.Config config = bm1.getConfig();
+            if (config == null) {
+                config = Bitmap.Config.ARGB_8888;
+            }
+
+            newBitmap = Bitmap.createBitmap(1080, 1920, config);
+            Canvas newCanvas = new Canvas(newBitmap);
+
+            newCanvas.drawColor(Color.WHITE);
+            newCanvas.rotate(90);
+
+            newCanvas.save();
+            newCanvas.rotate(-90);
+            newCanvas.translate(40,50);
+            newCanvas.drawBitmap(bm1, 50, 100, null);
+            newCanvas.drawBitmap(bm2, 50, 950, null);
+            return newBitmap;
+        }
+        public Bitmap storiesCanvas_type3(Bitmap image1,Bitmap image2){
+
+            Bitmap bm1 = null;
+            Bitmap bm2 = null;
+            Bitmap newBitmap = null;
+
+            bm1 = Bitmap.createScaledBitmap(image1, 904, 992, false);
+            bm2 = Bitmap.createScaledBitmap(image2, 904, 592, false);
+
+
+            Bitmap.Config config = bm1.getConfig();
+            if (config == null) {
+                config = Bitmap.Config.ARGB_8888;
+            }
+
+            newBitmap = Bitmap.createBitmap(1080, 1920, config);
+            Canvas newCanvas = new Canvas(newBitmap);
+
+            newCanvas.drawColor(Color.WHITE);
+            newCanvas.rotate(90);
+
+            newCanvas.save();
+            newCanvas.rotate(-90);
+            newCanvas.translate(40,50);
+            newCanvas.drawBitmap(bm1, 50, 100, null);
+            newCanvas.drawBitmap(bm2, 50, 1150, null);
+            return newBitmap;
+        }
+        public Bitmap storiesCanvas_type4(Bitmap image1){
+
+            Bitmap bm1 = null;
+            Bitmap newBitmap = null;
+
+            bm1 = Bitmap.createScaledBitmap(image1, 1080, 900, false);
+
+
+            Bitmap.Config config = bm1.getConfig();
+            if (config == null) {
+                config = Bitmap.Config.ARGB_8888;
+            }
+
+            newBitmap = Bitmap.createBitmap(1080, 1920, config);
+            Canvas newCanvas = new Canvas(newBitmap);
+
+            newCanvas.drawColor(Color.WHITE);
+            newCanvas.rotate(90);
+
+            newCanvas.save();
+            newCanvas.rotate(-90);
+            newCanvas.translate(0,50);
+            newCanvas.drawBitmap(bm1, 0, 444, null);
+            return newBitmap;
+        }
+
+        public Bitmap storiesCanvas_type5(Bitmap image1,Bitmap image2,Bitmap image3,Bitmap image4){
+
+            Bitmap bm1 = null;
+            Bitmap bm2 = null;
+            Bitmap bm3 = null;
+            Bitmap bm4 = null;
+            Bitmap newBitmap = null;
+
+            bm1 = Bitmap.createScaledBitmap(image1, 520, 490, false);
+            bm2 = Bitmap.createScaledBitmap(image2, 520, 490, false);
+            bm3 = Bitmap.createScaledBitmap(image3, 520, 490, false);
+            bm4 = Bitmap.createScaledBitmap(image4, 520, 490, false);
+
+
+            Bitmap.Config config = bm1.getConfig();
+            if (config == null) {
+                config = Bitmap.Config.ARGB_8888;
+            }
+
+            newBitmap = Bitmap.createBitmap(1080, 1920, config);
+            Canvas newCanvas = new Canvas(newBitmap);
+
+            newCanvas.drawColor(Color.WHITE);
+            newCanvas.rotate(90);
+
+            newCanvas.save();
+            newCanvas.rotate(-90);
+            newCanvas.translate(0,50);
+            newCanvas.drawBitmap(bm1, 0, 344, null);
+            newCanvas.drawBitmap(bm2, 600, 344, null);
+            newCanvas.drawBitmap(bm3, 0, 944, null);
+            newCanvas.drawBitmap(bm4, 600, 944, null);
+            return newBitmap;
+        }
+        public BitmapBuilder(Context context, File[] files,String message,int bitmapType) {
+            this.context = context;
+            this.files = files;
+            il = new ImageLibrary();
+            this.type = bitmapType;
+            this.message = message;
+        }
+
+        public BitmapBuilder context(Context context) {
+            this.context = context;
+            il = new ImageLibrary();
+            return this;
+        }
+        public Bitmap build() {
+            photto = new Photto(this);
+
+            Bitmap b=null;
+            if(this.type == BitmapType.TYPE_1){
+                b = storiesCanvas_type1(message,il.loadImageFromFile(files[0]));
+            }else if(this.type == BitmapType.TYPE_2){
+                b = storiesCanvas_type2(il.loadImageFromFile(files[0]),il.loadImageFromFile(files[1]));
+            }else if(this.type == BitmapType.TYPE_3){
+                b = storiesCanvas_type3(il.loadImageFromFile(files[0]),il.loadImageFromFile(files[1]));
+            }else if(this.type == BitmapType.TYPE_4){
+                b = storiesCanvas_type4(il.loadImageFromFile(files[0]));
+            }else if(this.type == BitmapType.TYPE_5){
+                b = storiesCanvas_type5(il.loadImageFromFile(files[0]),il.loadImageFromFile(files[1]),il.loadImageFromFile(files[2]),il.loadImageFromFile(files[3]));
+            }
+
+
+            return b;
+        }
     }
 
     public static class PhottoBuilder {
