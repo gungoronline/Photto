@@ -17,11 +17,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        File[] files = new File[]{new File("/storage/emulated/0/picture1.jpg"),new File("/storage/emulated/0/picture2.jpg")};
-        Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_3).build();
+        File[] files = new File[]{
+                new File("/storage/emulated/0/Download/p1.jpg"),
+                new File("/storage/emulated/0/Download/p2.jpg"),
+                new File("/storage/emulated/0/Download/p3.jpg"),
+                new File("/storage/emulated/0/Download/p4.jpg")
+        };
+        Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"@serifgungor", BitmapType.TYPE_6).build();
         ImageView iv = new ImageView(getApplicationContext());
         iv.setImageBitmap(b);
-
         setContentView(iv);//R.layout.activity_main
     }
 }

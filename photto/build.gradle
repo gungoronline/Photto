@@ -2,15 +2,13 @@ apply plugin: 'com.android.library'
 
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.1"
+    compileSdkVersion 31
+    buildToolsVersion "31"
 
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 26
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
         multiDexEnabled true
     }
 
@@ -26,5 +24,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
 }

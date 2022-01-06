@@ -6,4 +6,5 @@ public class BitmapType {
     public static int TYPE_3 = 3;
     public static int TYPE_4 = 4;
     public static int TYPE_5 = 5;
+    public static int TYPE_6 = 6;
 }

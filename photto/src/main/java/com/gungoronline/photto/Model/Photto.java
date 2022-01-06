@@ -48,7 +48,6 @@ public class Photto {
     private ImageView uploadImageView;
     private int imageResize;
 
-
     private Bitmap bitmap;
 
   public Photto(BitmapBuilder bitmapBuilder){
@@ -139,8 +138,6 @@ public class Photto {
             this.imageResize = imageResize;
         }
 
-
-
         public UploadBuilder hashMap(HashMap<String,String> hashMap) {
             this.uploadParams = hashMap;
             return this;
@@ -157,7 +154,6 @@ public class Photto {
             this.imageResize = imageResize;
             return this;
         }
-
 
         private Bitmap getResizedBitmap(Bitmap bitmapOrg,int resize) {
             Paint paint = new Paint();
@@ -181,11 +177,7 @@ public class Photto {
 
         public Photto upload() {
             photto = new Photto(this);
-
-
-
             Bitmap bitmap = ((BitmapDrawable) this.uploadImageView.getDrawable()).getBitmap();
-
 
             if(imageResize!=0){
                 bitmap = getResizedBitmap(bitmap,imageResize);
@@ -214,10 +206,8 @@ public class Photto {
                 }
             });
 
-
             return photto;
         }
-
     }
 
     public static class BitmapBuilder{
@@ -246,10 +236,8 @@ public class Photto {
                 config = Bitmap.Config.ARGB_8888;
             }
 
-
             newBitmap = Bitmap.createBitmap(1080, 1920, config);
             Canvas newCanvas = new Canvas(newBitmap);
-
 
             Paint paintText = new Paint();
             paintText.setColor(Color.BLACK);
@@ -273,7 +261,6 @@ public class Photto {
         }
 
         public Bitmap storiesCanvas_type2(Bitmap image1,Bitmap image2){
-
             Bitmap bm1 = null;
             Bitmap bm2 = null;
             Bitmap newBitmap = null;
@@ -301,7 +288,6 @@ public class Photto {
             return newBitmap;
         }
         public Bitmap storiesCanvas_type3(Bitmap image1,Bitmap image2){
-
             Bitmap bm1 = null;
             Bitmap bm2 = null;
             Bitmap newBitmap = null;
@@ -329,7 +315,6 @@ public class Photto {
             return newBitmap;
         }
         public Bitmap storiesCanvas_type4(Bitmap image1){
-
             Bitmap bm1 = null;
             Bitmap newBitmap = null;
 
@@ -355,7 +340,6 @@ public class Photto {
         }
 
         public Bitmap storiesCanvas_type5(Bitmap image1,Bitmap image2,Bitmap image3,Bitmap image4){
-
             Bitmap bm1 = null;
             Bitmap bm2 = null;
             Bitmap bm3 = null;
@@ -388,6 +372,41 @@ public class Photto {
             newCanvas.drawBitmap(bm4, 600, 944, null);
             return newBitmap;
         }
+
+        public Bitmap storiesCanvas_type6(Bitmap image1,Bitmap image2,Bitmap image3,Bitmap image4){
+            Bitmap bm1 = null;
+            Bitmap bm2 = null;
+            Bitmap bm3 = null;
+            Bitmap bm4 = null;
+            Bitmap newBitmap = null;
+
+            bm1 = Bitmap.createScaledBitmap(image1, 476, 464, false);
+            bm2 = Bitmap.createScaledBitmap(image2, 476, 464, false);
+            bm3 = Bitmap.createScaledBitmap(image3, 476, 464, false);
+            bm4 = Bitmap.createScaledBitmap(image4, 476, 464, false);
+
+
+            Bitmap.Config config = bm1.getConfig();
+            if (config == null) {
+                config = Bitmap.Config.ARGB_8888;
+            }
+
+            newBitmap = Bitmap.createBitmap(1080, 1920, config);
+            Canvas newCanvas = new Canvas(newBitmap);
+
+            newCanvas.drawColor(Color.WHITE);
+            newCanvas.rotate(90);
+
+            newCanvas.save();
+            newCanvas.rotate(-90);
+            newCanvas.translate(0,50);
+            newCanvas.drawBitmap(bm1, 60, -30, null);
+            newCanvas.drawBitmap(bm2, 536, 440, null);
+            newCanvas.drawBitmap(bm3, 60, 910, null);
+            newCanvas.drawBitmap(bm4, 536, 1380, null);
+            return newBitmap;
+        }
+
         public BitmapBuilder(Context context, File[] files,String message,int bitmapType) {
             this.context = context;
             this.files = files;
@@ -403,7 +422,6 @@ public class Photto {
         }
         public Bitmap build() {
             photto = new Photto(this);
-
             Bitmap b=null;
             if(this.type == BitmapType.TYPE_1){
                 b = storiesCanvas_type1(message,il.loadImageFromFile(files[0]));
@@ -415,9 +433,9 @@ public class Photto {
                 b = storiesCanvas_type4(il.loadImageFromFile(files[0]));
             }else if(this.type == BitmapType.TYPE_5){
                 b = storiesCanvas_type5(il.loadImageFromFile(files[0]),il.loadImageFromFile(files[1]),il.loadImageFromFile(files[2]),il.loadImageFromFile(files[3]));
+            }else if(this.type == BitmapType.TYPE_6){
+                b = storiesCanvas_type6(il.loadImageFromFile(files[0]),il.loadImageFromFile(files[1]),il.loadImageFromFile(files[2]),il.loadImageFromFile(files[3]));
             }
-
-
             return b;
         }
     }
