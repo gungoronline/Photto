@@ -253,6 +253,18 @@ File[] files = new File[]{
 Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_5).build();
 iv.setImageBitmap(b);
 ```
+### Bitmap Type 6
+![Photto Image Upload](/bitmapbuilder6.png)
+```groovy
+File[] files = new File[]{
+	new File("/storage/emulated/0/picture1.jpg"),
+	new File("/storage/emulated/0/picture2.jpg"),
+	new File("/storage/emulated/0/picture3.jpg"),
+	new File("/storage/emulated/0/picture4.jpg")
+};
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_6).build();
+iv.setImageBitmap(b);
+```
 
 # Change Logs
 ## 26.07.2019
@@ -268,6 +280,8 @@ iv.setImageBitmap(b);
 - The new version comes with the BitmapBuilder class. BitmapBuilder Type1, Type2 and Type3 is OK ! (27.02.2020)
 - BitmapBuilder Type4 and Type5 is OK ! (02.03.2020)
 # Maybe later... (0.6.0)
+- Bitmap Type 6
+# Maybe later... (0.7.0)
 - You got a new idea? Send a message to: contact@serifgungor.com
 
 Helpers
