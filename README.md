@@ -254,6 +254,19 @@ Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType
 iv.setImageBitmap(b);
 ```
 
+### Bitmap Type 6
+![Photto Image Upload](/bitmapbuilder6.png)
+```groovy
+File[] files = new File[]{
+	new File("/storage/emulated/0/Download/p1.jpg"),
+	new File("/storage/emulated/0/Download/p2.jpg"),
+	new File("/storage/emulated/0/Download/p3.jpg"),
+	new File("/storage/emulated/0/Download/p4.jpg")
+};
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_6).build();
+iv.setImageBitmap(b);
+```
+
 # Change Logs
 ## 26.07.2019
 - Version 0.1.0 has launched. (PhottoBuilder class created.FROM URL, FROM URI, FROM BASE64 STRING, FROM ASSETS FOLDER, FROM DRAWABLE added)
