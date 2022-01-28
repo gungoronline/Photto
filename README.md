@@ -267,6 +267,19 @@ Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType
 iv.setImageBitmap(b);
 ```
 
+### Bitmap Type 7
+![Photto Image Upload](/bitmapbuilder7.png)
+```groovy
+File[] files = new File[]{
+	new File("/storage/emulated/0/Download/p1.jpg"),
+	new File("/storage/emulated/0/Download/p2.jpg"),
+	new File("/storage/emulated/0/Download/p3.jpg"),
+	new File("/storage/emulated/0/Download/p4.jpg")
+};
+Bitmap b = new Photto.BitmapBuilder(getApplicationContext(),files,"", BitmapType.TYPE_7).build();
+iv.setImageBitmap(b);
+```
+
 # Change Logs
 ## 26.07.2019
 - Version 0.1.0 has launched. (PhottoBuilder class created.FROM URL, FROM URI, FROM BASE64 STRING, FROM ASSETS FOLDER, FROM DRAWABLE added)
@@ -281,6 +294,9 @@ iv.setImageBitmap(b);
 - The new version comes with the BitmapBuilder class. BitmapBuilder Type1, Type2 and Type3 is OK ! (27.02.2020)
 - BitmapBuilder Type4 and Type5 is OK ! (02.03.2020)
 # Maybe later... (0.6.0)
+- BitmapBuilder Type6 is OK !
+- CircleImageView added (28.01.2022)
+# Maybe later... (0.7.0)
 - You got a new idea? Send a message to: contact@serifgungor.com
 
 Helpers
