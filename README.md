@@ -295,6 +295,7 @@ iv.setImageBitmap(b);
 - BitmapBuilder Type4 and Type5 is OK ! (02.03.2020)
 # Maybe later... (0.6.0)
 - BitmapBuilder Type6 is OK !
+- BitmapBuilder Type7 is OK !
 - CircleImageView added (28.01.2022)
 # Maybe later... (0.7.0)
 - You got a new idea? Send a message to: contact@serifgungor.com
@@ -314,7 +315,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
