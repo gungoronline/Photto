@@ -210,6 +210,7 @@ ImageView supported Double-Touch to Zoom and Pinch to Zoom !
 ```
 
 ## BitmapBuilder (Class)
+[How to use on Kotlin](https://www.youtube.com/shorts/pDr144GdyYw)
 
 ### Bitmap Type 1
 ![Photto Image Upload](/bitmapbuilder.png)
